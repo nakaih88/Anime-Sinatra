@@ -1,0 +1,17 @@
+
+
+<h3>Name: <%= @anime.name %></h3>
+<h3>Favorite Character: <%= @anime.fav_character %></h3>
+<h3>Rating: <%= @anime.rating %></h3> 
+
+<% if current_user == @anime.user%>
+
+    <a href="/anime_entries/<%= @anime.id %>/edit"> Edit Entry </a>
+    <p></p>
+    <form class="" action="/anime_entries/<%= @anime.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" name="" value="Delete this Entry">
+    </form>
+
+
+<% end %>

@@ -1,0 +1,13 @@
+
+    <% @all_animes.each do |anime | %>
+        <h5><a href="/anime_entries/<%= anime.id %>"><%= anime.id %></a></h5>
+        <h5>Name: </h5>
+        <%= anime.name %>
+        <h5>Favorite Character: </h5>
+        <%= anime.fav_character %>
+        <h5>Rating: </h5>
+        <%= anime.rating %>
+        <h5><%= anime.created_at %></h5>
+        <h5>Created by: <%= anime.user.username %></h5>
+        <br></br>
+    <% end %> 

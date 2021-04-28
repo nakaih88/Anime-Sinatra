@@ -1,0 +1,20 @@
+<h2><%= @user.username %>'s Home Page! </h2>
+
+<h3> Use the links on top to... </h3>
+    <ol>
+        <li> - Create a New Anime Entry</li>
+        <li> - View All Anime Entries</li>
+        <li> - Logout</li>
+    </ol>
+
+    <br></br>
+
+<h2> These are your Anime's </h2>
+
+    <% @user.animes.each do |anime| %>
+        <b>ID:</b> <a href="/anime_entries/<%= anime.id %>"><%= anime.id %></a>
+        <b>Name: </b> <%= anime.name %>
+        <b>Favorite Character: </b> <%= anime.fav_character %>
+        <b>Rating: </b> <%= anime.rating %>
+        <br></br>
+    <% end %>
