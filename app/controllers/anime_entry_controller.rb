@@ -1,7 +1,7 @@
 class AnimeEntriesController < ApplicationController
 
     get '/anime_entries' do
-        @all_animes = Anime.all
+        @all_anime = Anime.all
         erb :'anime_entries/index'
     end
 
@@ -13,8 +13,8 @@ class AnimeEntriesController < ApplicationController
         if !logged_in?
             redirect '/'
         end
-        if params[:name] != "" && params[:fav_character] != "" && params[:rating] != ""
-            @anime = Anime.create(name: params[:name], fav_character: params[:fav_character], rating: params[:rating], user_id: current_user.id)
+        if params[:name] != "" && params[:fav_scene] != "" && params[:rating] != ""
+            @anime = Anime.create(name: params[:name], fav_scene: params[:fav_scene], rating: params[:rating], user_id: current_user.id)
             redirect "/anime_entries/#{@anime.id}"
         else
             flash[:message] = "Uh oh! You didn't fill out the form entirely!"
@@ -39,8 +39,8 @@ class AnimeEntriesController < ApplicationController
     patch '/anime_entries/:id' do
         @anime = Anime.find(params[:id])
         if logged_in?
-            if @anime.user == current_user && params[:name] != "" && params[:fav_character] != "" && params[:rating] != ""
-                @anime.update(name: params[:name], fav_character: params[:fav_character], rating: params[:rating])
+            if @anime.user == current_user && params[:name] != "" && params[:fav_scene] != "" && params[:rating] != ""
+                @anime.update(name: params[:name], fav_scene: params[:fav_scene], rating: params[:rating])
                 redirect "/anime_entries/#{@anime.id}"
             else
                 flash[:message] = "Uh oh! You didn't fill out the form entirely!"

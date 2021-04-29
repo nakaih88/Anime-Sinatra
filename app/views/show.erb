@@ -11,10 +11,10 @@
 
 <h2> These are your Anime's </h2>
 
-    <% @user.animes.each do |anime| %>
+    <% @user.anime.each do |anime| %>
         <b>ID:</b> <a href="/anime_entries/<%= anime.id %>"><%= anime.id %></a>
         <b>Name: </b> <%= anime.name %>
-        <b>Favorite Scene: </b> <%= anime.fav_character %>
+        <b>Favorite Scene: </b> <%= anime.fav_scene %>
         <b>Rating: </b> <%= anime.rating %>
         <br></br>
     <% end %>
