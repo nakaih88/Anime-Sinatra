@@ -29,9 +29,10 @@ class AnimeEntriesController < ApplicationController
 
     get '/anime_entries/:id/edit' do
         @anime = Anime.find(params[:id])
-        if !logged_in? || @anime.user != current_user
-            redirect '/'
-        end
+#        if !logged_in? || @anime.user != current_user
+#        redirect '/'
+#        end
+        redirect_if_not_authorized(@anime)
         erb :'/anime_entries/edit'
     end
 
