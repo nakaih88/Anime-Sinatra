@@ -6,7 +6,7 @@ This small web app lets you create your own thoughts an a particular anime you h
 
 You git clone it by the following:
 
-    $ git clone git@github.com:nakaih88/Anime-Sinatra.git
+    $ git@github.com:nakaih88/sinatra-project.git
 
 Execute:
 
