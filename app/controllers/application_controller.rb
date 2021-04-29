@@ -23,6 +23,13 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
+    def redirect_if_not_authorized(anime)
+      if !logged_in? || anime.user != current_user
+       redirect '/'
+      end
+    end
+
+
     def current_user
       @current_user ||= User.find_by(id: session[:user_id])
     end
